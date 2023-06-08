@@ -7,7 +7,7 @@
         <div class="chat-user" v-for="(user, index) in group.users" :key="index">{{ user.userName }}</div>
       </el-aside>
       <el-main class="chat-main">
-        <div class="chat-main-title">{{ group.groupName }}({{ group.currentUserName }})</div>
+        <div class="chat-main-title">{{ group.groupName }}(当前用户: {{ group.currentUserName }})</div>
         <div class="chat-wrap">
           <div class="chat-list">
             <div v-for="(message, index) in group.messages" :key="index">
