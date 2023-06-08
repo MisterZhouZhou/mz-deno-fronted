@@ -3,10 +3,11 @@
     <el-container>
       <el-aside class="chat-aside" width="260px">
         <div class="chat-title">当前聊天室人数{{ group.users.length }}</div>
+        <div class="aside-line"></div>
         <div class="chat-user" v-for="(user, index) in group.users" :key="index">{{ user.userName }}</div>
       </el-aside>
       <el-main class="chat-main">
-        <div class="chat-main-title">{{ group.groupName }}-{{ group.currentUserName }}</div>
+        <div class="chat-main-title">{{ group.groupName }}({{ group.currentUserName }})</div>
         <div class="chat-list">
           <div v-for="(message, index) in group.messages" :key="index" :class="{'chat-me': message.isMe, 'chat-other': !message.isMe}">
             <div v-if="!message.isMe" class="user-name">{{ message.userName }}</div>
@@ -15,8 +16,8 @@
           </div>
         </div>
         <div class="chat-input">
-          <el-input v-model="group.input" maxlength="30" placeholder="Please input" show-word-limit type="textarea" />
-          <el-button type="primary" class="chat-send" @click="send">发送</el-button>
+          <el-input v-model="group.input" maxlength="30" placeholder="请输入消息" show-word-limit type="textarea" />
+          <el-button type="primary" class="chat-send" @click="send">发送消息</el-button>
         </div>
       </el-main>
     </el-container>
@@ -59,7 +60,9 @@ const radioObj = reactive({
 const group = reactive({
   groupName: '',
   currentUserName: route.query.name || 'mz',
-  users: Array<IUser>(),
+  users: [
+    {userId: 0, userName: '11'}
+  ],
   messages: Array<IMessage>(),
   input: ''
 })
@@ -70,7 +73,6 @@ if (!route.query.name) {
 }
 
 function initSocket() {
-  console.log(import.meta.env.VITE_APP_WEBSOCKET);
   socket = new WebSocket(
     `${import.meta.env.VITE_APP_WEBSOCKET}/ws`,
   );
@@ -79,7 +81,6 @@ function initSocket() {
 }
 
 const onConnectionOpen = () => {
-  console.log('---onConnectionOpen');
   // 展示群里分组
   showDialog.value = true
 }
@@ -130,47 +131,56 @@ initSocket()
 </script>
 
 <style lang="less">
+@bg-color: rgba(0,0,0,0.7);
 .chat-header {
-  background-color: #5a5b5c;
+  background-color: @bg-color;
 }
 
 .chat-aside {
   height: 100vh;
-  background-color: #5a5b5c;
+  background-color: @bg-color;
+  box-shadow: 1px 0px 1px rgba(0, 0, 0, 0.44);
   .chat-title {
-    color: rgba(255, 255, 255, 0.6);
+    color: #fff;
     padding: 10px 0;
     font-size: 24px;
     font-weight: 500;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.6);
   }
-
+  .aside-line {
+    height: 1px;
+    background-color:  rgba(0, 0, 0, 0.25);
+  }
   .chat-user {
-    font-size: 26px;
+    font-size: 20px;
     font-weight: 500;
+    color: #fff;
     text-align: center;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
-
 .chat-main {
   padding: 0;
   position: relative;
-
+  height: 100vh;
   .chat-main-title {
     height: 34px;
-    color: rgba(255, 255, 255, 0.6);
+    color: #fff;
     padding: 10px 20px;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 500;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: @bg-color;
   }
   .chat-list {
     padding: 0 10px;
+    background-color: #DFD7D7;
+    height: calc(100vh - 54px);
     .user-name {
       font-size: 20px;
       font-weight: 500;
-
     }
     .user-message {
       padding: 10px;
@@ -196,14 +206,14 @@ initSocket()
   }
   .chat-input {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
     display: flex;
     align-items: center;
-    width: calc(100vw - 280px);
     .chat-send {
       height: 52px;
-      margin-left: 10px;
+      margin-left: 20px;
     }
   }
 }
