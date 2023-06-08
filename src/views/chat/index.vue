@@ -28,7 +28,7 @@
             </div>
           </div>
           <div class="chat-input">
-            <el-input v-model="group.input" maxlength="30" placeholder="请输入消息" show-word-limit type="textarea" />
+            <el-input v-model="group.input" placeholder="请输入消息" show-word-limit type="textarea" />
             <el-button type="primary" class="chat-send" @click="send">发送消息</el-button>
           </div>
         </div>
