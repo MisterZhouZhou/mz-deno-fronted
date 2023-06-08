@@ -203,25 +203,24 @@ initSocket()
       display: flex;
       flex-direction: column;
       .user-name {
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 500;
       }
       .user-message {
-        padding: 16px;
+        padding: 15px;
         border-radius: 6px;
-        font-size: 20px;
+        font-size: 14px;
         max-width: 600px;
         margin-top: 8px;
       }
     }
     .user-other {
       display: flex;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       .user-content {
         margin-left: 18px;
         .user-message {
           background-color: #fff;
-          font-size: 16px;
           color: rgba(0,0,0,0.6);
         }
       }
@@ -229,7 +228,7 @@ initSocket()
     .user-me {
       display: flex;
       justify-content: flex-end;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       .user-content {
         margin-right: 18px;
         .user-name {
