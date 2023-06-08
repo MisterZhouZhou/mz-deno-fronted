@@ -8,16 +8,29 @@
       </el-aside>
       <el-main class="chat-main">
         <div class="chat-main-title">{{ group.groupName }}({{ group.currentUserName }})</div>
-        <div class="chat-list">
-          <div v-for="(message, index) in group.messages" :key="index" :class="{'chat-me': message.isMe, 'chat-other': !message.isMe}">
-            <div v-if="!message.isMe" class="user-name">{{ message.userName }}</div>
-            <div class="user-message">{{ message.message }}</div>
-            <div v-if="message.isMe" class="user-name">{{ message.userName }}</div>
+        <div class="chat-wrap">
+          <div class="chat-list">
+            <div v-for="(message, index) in group.messages" :key="index">
+              <div v-if="!message.isMe" class="user-other">
+                <img class="user-avatar" src="https://via.placeholder.com/48x48" />
+                <div class="user-content">
+                  <div class="user-name">{{ message.userName }}</div>
+                  <div class="user-message">{{ message.message }}</div>
+                </div>
+              </div>
+              <div v-if="message.isMe" class="user-me">
+                <div class="user-content">
+                  <div class="user-name">{{ message.userName }}</div>
+                  <div class="user-message">{{ message.message }}</div>
+                </div>
+                <img class="user-avatar" src="https://via.placeholder.com/48x48" />
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="chat-input">
-          <el-input v-model="group.input" maxlength="30" placeholder="请输入消息" show-word-limit type="textarea" />
-          <el-button type="primary" class="chat-send" @click="send">发送消息</el-button>
+          <div class="chat-input">
+            <el-input v-model="group.input" maxlength="30" placeholder="请输入消息" show-word-limit type="textarea" />
+            <el-button type="primary" class="chat-send" @click="send">发送消息</el-button>
+          </div>
         </div>
       </el-main>
     </el-container>
@@ -60,9 +73,7 @@ const radioObj = reactive({
 const group = reactive({
   groupName: '',
   currentUserName: route.query.name || 'mz',
-  users: [
-    {userId: 0, userName: '11'}
-  ],
+  users: Array<IUser>(),
   messages: Array<IMessage>(),
   input: ''
 })
@@ -174,33 +185,60 @@ initSocket()
     font-weight: 500;
     background-color: @bg-color;
   }
-  .chat-list {
-    padding: 0 10px;
+  .chat-wrap {
     background-color: #DFD7D7;
     height: calc(100vh - 54px);
-    .user-name {
-      font-size: 20px;
-      font-weight: 500;
+  }
+  .chat-list {
+    padding: 30px 20px;
+    background-color: #DFD7D7;
+    height: calc(100vh - 54px - 150px);
+    overflow: auto;
+    .user-avatar {
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
     }
-    .user-message {
-      padding: 10px;
-      border-radius: 8px;
-      font-size: 20px;
-      max-width: 300px;
-    }
-    .chat-me {
+    .user-content {
       display: flex;
-      justify-content: flex-end;
+      flex-direction: column;
+      .user-name {
+        font-size: 20px;
+        font-weight: 500;
+      }
       .user-message {
-        margin-right: 10px;
-        background-color: green;
+        padding: 16px;
+        border-radius: 6px;
+        font-size: 20px;
+        max-width: 600px;
+        margin-top: 8px;
       }
     }
-    .chat-other {
+    .user-other {
       display: flex;
-      .user-message {
-        margin-left: 10px;
-        background-color: lightgray;
+      margin-bottom: 20px;
+      .user-content {
+        margin-left: 18px;
+        .user-message {
+          background-color: #fff;
+          font-size: 16px;
+          color: rgba(0,0,0,0.6);
+        }
+      }
+    }
+    .user-me {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+      .user-content {
+        margin-right: 18px;
+        .user-name {
+          text-align: right;
+        }
+        .user-message {
+          background-color: #008000;
+          color: rgba(0, 0, 0, 0.6);
+        }
       }
     }
   }
