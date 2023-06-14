@@ -2,3 +2,52 @@ body {
   margin: 0;
   padding: 0;
 }
+
+blockquote {
+  margin: 0;
+  pad: 0;
+  background-color: #aaa;
+  p {
+    padding: 10px;
+    background-color: #f2f2f2;
+  }
+}
+
+pre {
+  background-color: #f6f8fa;
+  border: 1px solid #aaa;
+  padding: 16px;
+  color: #333;
+}
+
+warning {
+  display: block;
+  width: 100%;
+  background-color: rgba(255, 207, 102, 0.8);
+  padding: 10px;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #e7e7e7;
+  text-align: center;
+  thead {
+    background-color: #f9f9f9;
+  }
+  th {
+    font-weight: bold;
+  }
+  td, th {
+    padding: 10px;
+  }
+  tbody {
+    tr:nth-child(even) {
+      background-color: #ffffff;
+    }
+    
+    tr:nth-child(odd) {
+      background-color: #f2f2f2;
+    }
+  }
+}

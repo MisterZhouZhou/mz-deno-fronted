@@ -1,0 +1,92 @@
+[
+  {
+    "groupName": "全局Api",
+    "items": [
+      {
+        "id": 1,
+        "name": "socket群组聊天接口",
+        "desc": "socket群组聊天"
+      },
+      {
+        "id": 2,
+        "name": "login授权接口",
+        "desc": "login授权返回token及用户信息"
+      },
+      {
+        "id": 3,
+        "name": "upload文件上传接口",
+        "desc": "文件上传"
+      },
+      {
+        "id": 4,
+        "name": "uploads/:file获取文件预览接口",
+        "desc": "获取文件流，在浏览器中可以查看"
+      },
+      {
+        "id": 5,
+        "name": "downloads/:file文件下载接口",
+        "desc": "文件下载"
+      },
+      {
+        "id": 5,
+        "name": "downloads/:file文件下载接口",
+        "desc": "文件下载"
+      }
+    ]
+  },
+  {
+    "groupName": "公共Api",
+    "items": [
+      {
+        "id": 101,
+        "name": "api/captcha生成图形验证码接口",
+        "desc": "生成图形验证码以文件流返回"
+      },
+      {
+        "id": 102,
+        "name": "api/verify图形验证码验证接口",
+        "desc": "图形验证码验证"
+      },
+      {
+        "id": 103,
+        "name": "api/placeholder/:size生成不同尺寸的占位图",
+        "desc": "获取尺寸对应大小的占位图"
+      },
+      {
+        "id": 104,
+        "name": "api/short短链生成接口",
+        "desc": "传入内容获取短链码"
+      },
+      {
+        "id": 105,
+        "name": "api/short/:url根据短链获取长链接接口",
+        "desc": "根据短链码获取长链接接口"
+      },
+      {
+        "id": 106,
+        "name": "api/qrcode生成二维码接口",
+        "desc": "根据内容生成二维码接口，返回image base64"
+      },
+      {
+        "id": 107,
+        "name": "api/qrcode/show生成二维码接口",
+        "desc": "根据内容生成二维码接口，返回html"
+      },
+      {
+        "id": 108,
+        "name": "api/screenShoot屏幕截图为图片或者pdf",
+        "desc": "根据url生成不同设备的截图或pdf"
+      }
+    ]
+  },
+  {
+    "groupName": "鉴权Api",
+    "items": [
+      {
+        "id": 1001,
+        "name": "api/hello1鉴权hello",
+        "desc": "需要鉴权的接口测试"
+      }
+    ]
+  }
+]

@@ -1,0 +1,87 @@
+.docsHeader {
+  position: relative;
+  color: #eee;
+  padding: 30px;
+  background-color: #27ae60;
+  .headerNav {
+    min-height: 50px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    .title {
+      color: #fff;
+    }
+    .menu {
+      .navLink {
+        margin-right: 10px;
+        font-size: 16px;
+        color: #eee;
+        text-decoration: none;
+      }
+    }
+    .menuIcon {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      width: 44px;
+      height: 34px;
+      background-color: transparent;
+      background-image: none;
+      border: 1px solid transparent;
+      .iconBar {
+        margin-top: 5px;
+        display: block;
+        width: 22px;
+        height: 2px;
+        background-color: #fff;
+        border-radius: 1px;
+      }
+    }
+  }
+  .verticalMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    .navLink {
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: #eee;
+      text-decoration: none;
+    }
+  }
+  .headerContainer {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #f4f4f4;
+    .headerTitle {
+      font-size: 40px;
+      color: #fff;
+      font-weight: 600;
+    }
+    .headerSubtitle {
+      margin-top: 10px;
+      font-size: 20px;
+    }
+    .headerDes {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .docsHeader {
+    .headerNav {
+      .menu {
+        display: none;
+      }
+      .menuIcon {
+        display: flex;
+      }
+    }
+  }
+}
