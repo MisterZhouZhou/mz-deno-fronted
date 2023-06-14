@@ -7,7 +7,7 @@ api文档：https://mz-deno-front.deno.dev/#/docs
 聊天系统：https://mz-deno-front.deno.dev/#/chat?name=mz
 
 ## 技术栈
-Vue 3 + TypeScript + Vite
+Vue 3 + TSX + TypeScript + Vite
 
 ## 效果
 ### api文档
