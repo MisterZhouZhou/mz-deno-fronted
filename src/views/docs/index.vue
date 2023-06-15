@@ -36,7 +36,7 @@
   import DocsFooter from '../../components/DocsFooter';
   import DocsList from '../../config/docs.json'
 
-  const activeName = ref('0')
+  const activeName = ref('1')
   const router = useRouter()
 
   // api列表点击
@@ -56,6 +56,12 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  .nav-link {
+    margin-right: 10px;
+    font-size: 16px;
+    color: #eee;
+    text-decoration: none;
+  }
   .header-title {
     font-size: 40px;
     color: #fff;

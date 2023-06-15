@@ -76,6 +76,11 @@
         "id": 108,
         "name": "api/screenShoot屏幕截图为图片或者pdf",
         "desc": "根据url生成不同设备的截图或pdf"
+      },
+      {
+        "id": 109,
+        "name": "/api/image/resize调整图片大小",
+        "desc": "调整图片大小并返回图片，返回image/png"
       }
     ]
   },

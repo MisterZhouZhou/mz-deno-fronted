@@ -8,7 +8,7 @@ export default () => {
         <div>友情链接</div>
       </div>
       <div class={styles.copyRight}>
-        <span>{`MZ Deno Api ${new Date().getFullYear()}© mz`}</span>
+        <span>{`MZ Deno Api 2023© by mz`}</span>
       </div>
     </footer>
   )
